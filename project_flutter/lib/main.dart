@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
+import 'pages/main_page.dart';
 import 'pages/profile_page.dart';
+import 'pages/katalog_product_page.dart';
+import 'pages/notification_page.dart';
+import 'pages/product_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,8 +69,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
-        '/home': (context) => const HomePage(),
+        '/home': (context) => const MainPage(),
         '/profile': (context) => const ProfilePage(),
+        '/katalog': (context) => const KatalogProduk(),
+        '/notification': (context) => const NotificationPage(),
+        '/detail': (context) => const ProductDetailPage(),
       },
     );
   }

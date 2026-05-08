@@ -24,43 +24,7 @@ class HomePage extends StatelessWidget {
             _buildVouchers(),
           ],
         ),
-      ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 24), // Margin agar melayang
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30), // Pill shape
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.15),
-              blurRadius: 20,
-              offset: const Offset(0, 10),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: const Color(0xFF00AA13),
-            unselectedItemColor: Colors.grey,
-            currentIndex: 0,
-            backgroundColor: Colors.white,
-            elevation: 0, // Hilangkan elevation bawaan karena sudah pakai shadow di Container
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
-              BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label: 'Katalog'),
-              BottomNavigationBarItem(icon: Icon(Icons.notifications_none), label: 'Notifikasi'),
-              BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profil'),
-            ],
-            onTap: (index) {
-              if (index == 3) {
-                Navigator.pushNamed(context, '/profile');
-              }
-            },
-          ),
-        ),
-      ),
+      )
     );
   }
 
