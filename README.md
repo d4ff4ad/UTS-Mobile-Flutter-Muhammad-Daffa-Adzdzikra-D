@@ -13,6 +13,8 @@ Aplikasi mobile sederhana menggunakan Flutter yang mencakup alur autentikasi, na
 ![alt text](image-1.png)
 - **Profile Page**: Menampilkan dan mengedit profil pengguna (simulasi CRUD).
 ![alt text](image-2.png)
+![alt text](image.png)
+![alt text](image-1.png)
 - **Routing**: Navigasi antar halaman menggunakan Navigator.
 ![alt text](image-3.png)
 - **Katalog Produk**: Menampilkan daftar produk menggunakan GridView.
