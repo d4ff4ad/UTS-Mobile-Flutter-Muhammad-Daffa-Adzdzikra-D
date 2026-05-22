@@ -1,14 +1,54 @@
 import 'package:flutter/material.dart';
-import 'pages/login_page.dart';
-import 'pages/home_page.dart';
-import 'pages/main_page.dart';
-import 'pages/profile_page.dart';
-import 'pages/katalog_product_page.dart';
-import 'pages/notification_page.dart';
-import 'pages/product_detail.dart';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+
+// Features Auth
+import 'package:project_flutter/features/auth/presentation/pages/login_page.dart';
+// Features Home
+import 'package:project_flutter/features/home/presentation/pages/main_page.dart';
+// Features Profile
+import 'package:project_flutter/features/profile/presentation/pages/profile_page.dart';
+// Features Product
+import 'package:project_flutter/features/product/presentation/pages/katalog_product_page.dart';
+import 'package:project_flutter/features/product/presentation/pages/product_detail.dart';
+// Features Notification
+import 'package:project_flutter/features/notification/presentation/pages/notification_page.dart';
+// Features Post
+import 'package:project_flutter/features/post/presentation/pages/postingan_page.dart';
+import 'package:project_flutter/features/post/presentation/providers/post_provider.dart';
+import 'package:project_flutter/features/post/data/datasources/post_remote_data_source.dart';
+import 'package:project_flutter/features/post/data/repositories/post_repository_impl.dart';
+import 'package:project_flutter/features/post/domain/usecases/get_posts.dart';
+import 'package:project_flutter/features/post/domain/usecases/create_post.dart';
+import 'package:project_flutter/features/post/domain/usecases/update_post.dart';
+import 'package:project_flutter/features/post/domain/usecases/delete_post.dart';
 
 void main() {
-  runApp(const MyApp());
+  final httpClient = http.Client();
+  final postRemoteDataSource = PostRemoteDataSourceImpl(client: httpClient);
+  final postRepository = PostRepositoryImpl(remoteDataSource: postRemoteDataSource);
+  
+  // UseCases
+  final getPosts = GetPosts(postRepository);
+  final createPost = CreatePost(postRepository);
+  final updatePost = UpdatePost(postRepository);
+  final deletePost = DeletePost(postRepository);
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PostProvider(
+            getPostsUseCase: getPosts,
+            createPostUseCase: createPost,
+            updatePostUseCase: updatePost,
+            deletePostUseCase: deletePost,
+          ),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -74,6 +114,7 @@ class MyApp extends StatelessWidget {
         '/katalog': (context) => const KatalogProduk(),
         '/notification': (context) => const NotificationPage(),
         '/detail': (context) => const ProductDetailPage(),
+        '/postingan': (context) => const PostinganPage(),
       },
     );
   }
