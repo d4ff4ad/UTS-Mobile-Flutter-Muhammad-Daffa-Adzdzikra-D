@@ -80,5 +80,9 @@ Pastikan Flutter SDK (versi >= 3.0) sudah terinstal di komputer Anda.
 | :---: | :---: | :---: |
 | ![alt text](image-3.png) | ![alt text](image-4.png) | ![alt text](image-5.png) |
 
+| Postingan (Pencarian) | Postingan (Tambah Postingan) |
+| :---: | :---: |
+| ![alt text](image-6.png) | ![alt text](image-7.png) |
+
 ---
 *Dibuat dengan ❤️ untuk UTS Pemrograman Mobile*
