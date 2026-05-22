@@ -2,6 +2,12 @@
 
 Proyek ini adalah aplikasi *mobile* berbasis Flutter yang dibangun sebagai pemenuhan tugas Ujian Tengah Semester (UTS) mata kuliah Pemrograman Mobile. Aplikasi ini mensimulasikan antarmuka dan alur pengguna (*User Flow*) layaknya aplikasi *super-app* populer (Gojek) dengan desain yang modern, *clean*, dan dinamis.
 
+**Dan untuk sekarang repository ini digunakan untuk tugas pada mata kulia pemrograman web.**
+
+
+GET, POST, PUT, DELETE
+dari link https://jsonplaceholder.typicode.com/ ini
+
 **Nama:** Muhammad Daffa Adzdzikra D 
 
 
